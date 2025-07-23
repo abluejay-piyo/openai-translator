@@ -45,7 +45,7 @@ export interface IThemedStyleProps {
     showLogo?: boolean
 }
 
-export type LanguageDetectionEngine = 'google' | 'baidu' | 'bing' | 'local'
+export type LanguageDetectionEngine = 'google' | 'baidu' | 'bing' | 'local' | 'localGemini'
 
 export type ProxyProtocol = 'HTTP' | 'HTTPS'
 
@@ -142,4 +142,5 @@ export interface ISettings {
     uiFontSize: number
     iconSize: number
     noModelsAPISupport: boolean
+    localGeminiModel: string
 }

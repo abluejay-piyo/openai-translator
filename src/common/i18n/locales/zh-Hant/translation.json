@@ -200,5 +200,7 @@
     "The survival time of the Ollama model in memory": "Ollama 模型在記憶體中的存留時間",
     "No models API support": "不支援模型 API",
     "Some providers claiming to be compatible with OpenAI's API do not actually support OpenAI's standard model API. Therefore, we have no choice but to offer this option. If you choose this option (and then need to click the save button), we will not attempt to dynamically fetch the latest model list from the model API, but will only use a fixed model list and custom models.": "某些聲稱與 OpenAI 的 API 相容的供應商實際上不支援 OpenAI 的標準模型 API。因此，我們別無選擇，只能提供此選項。如果您選擇此選項（之後需要點選儲存按鈕），我們將不會嘗試從模型 API 動態取得最新的模型列表，而只會使用固定的模型列表和自訂模型。",
-    "If you find this tool helpful, you can buy me a cup of coffee.": "如果您覺得這個工具有幫助，可以請我喝杯咖啡。"
+    "If you find this tool helpful, you can buy me a cup of coffee.": "如果您覺得這個工具有幫助，可以請我喝杯咖啡。",
+    "Local Gemini uses your browser's built-in translation capabilities. No API key required.": "本地 Gemini 使用瀏覽器內建的翻譯功能，無需 API 金鑰。",
+    "Note: This feature requires a compatible browser with Translator API support.": "注意：此功能需要支援 Translator API 的相容瀏覽器。"
 }

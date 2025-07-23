@@ -218,6 +218,7 @@ function LanguageDetectionEngineSelector({ value, onChange, onBlur }: ILanguageD
                 { label: t('Google'), id: 'google' },
                 { label: t('Bing'), id: 'bing' },
                 { label: t('Local'), id: 'local' },
+                { label: t('Local Gemini'), id: 'localGemini' }, // Add this option
             ]}
         />
     )
@@ -1333,6 +1334,7 @@ function ProviderSelector({ value, onChange, hasPromotion }: IProviderSelectorPr
               { label: 'Cohere', id: 'Cohere' },
               { label: `Ollama (${t('Local Model')})`, id: 'Ollama' },
               { label: 'Gemini', id: 'Gemini' },
+              { label: `Local Gemini (${t('Local Model')})`, id: 'Local Gemini' },
               // { label: 'ChatGPT (Web)', id: 'ChatGPT' },
               { label: 'Azure', id: 'Azure' },
               { label: 'MiniMax', id: 'MiniMax' },
@@ -1351,6 +1353,7 @@ function ProviderSelector({ value, onChange, hasPromotion }: IProviderSelectorPr
               { label: 'ChatGPT (Web)', id: 'ChatGPT' },
               { label: 'Cohere', id: 'Cohere' },
               { label: 'Gemini', id: 'Gemini' },
+              { label: `Local Gemini (${t('Local Model')})`, id: 'Local Gemini' },
               { label: 'Azure', id: 'Azure' },
               { label: 'MiniMax', id: 'MiniMax' },
               { label: 'Moonshot', id: 'Moonshot' },
@@ -2434,6 +2437,7 @@ export function InnerSettings({
                         >
                             <FormItem
                                 required={values.provider === 'DeepSeek'}
+
                                 name='deepSeekAPIKey'
                                 label='DeepSeek API Key'
                                 caption={

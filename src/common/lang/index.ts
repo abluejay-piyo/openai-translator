@@ -339,6 +339,27 @@ export async function localDetectLang(text: string): Promise<LangCode> {
     }
 }
 
+async function localGeminiDetect(text: string): Promise<LangCode> {
+    if (!('languageDetector' in navigator)) {
+        console.warn('Language Detector API not available.')
+        // Fallback to another method if the API is not available
+        return localDetectLang(text)
+    }
+    try {
+        const detector = await (navigator as any).languageDetector.create()
+        const results = await detector.detect(text)
+        if (results.length > 0) {
+            const lang = results[0].language
+            // You might need to map the detected language code to your internal LangCode enum
+            return lang.split('-')[0] as LangCode
+        }
+    } catch (error) {
+        console.error('Error using Language Detector API:', error)
+        return localDetectLang(text) // Fallback on error
+    }
+    return 'auto' // Default fallback
+}
+
 export async function detectLang(text: string): Promise<LangCode> {
     let detectedText = text
     if (detectedText.length > 1000) {
@@ -346,14 +367,16 @@ export async function detectLang(text: string): Promise<LangCode> {
     }
     const settings = await getSettings()
     switch (settings.languageDetectionEngine) {
-        case 'baidu':
-            return await baiduDetectLang(detectedText)
         case 'google':
             return await googleDetectLang(detectedText)
+        case 'baidu':
+            return await baiduDetectLang(detectedText)
         case 'bing':
             return await bingDetectLang(detectedText)
         case 'local':
             return await localDetectLang(detectedText)
+        case 'localGemini':
+            return await localGeminiDetect(detectedText)
         default:
             return await localDetectLang(detectedText)
     }

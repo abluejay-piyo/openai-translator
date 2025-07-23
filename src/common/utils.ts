@@ -251,6 +251,9 @@ export async function getSettings(): Promise<ISettings> {
     if (settings.ollamaModelLifetimeInMemory === undefined || settings.ollamaModelLifetimeInMemory === null) {
         settings.ollamaModelLifetimeInMemory = '5m'
     }
+    if (!settings.localGeminiModel) {
+        settings.localGeminiModel = 'local-gemini-nano'
+    }
     return settings
 }
 
